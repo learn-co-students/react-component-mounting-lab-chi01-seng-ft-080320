@@ -9,33 +9,11 @@ class App extends Component {
     timerIDs: []
   }
 
+  componentDidMount() {
+    this.handleAddTimer()
+  }
 
   //Your code here:
-
-
-
-
-
-
-
-
-
-  // No need to modify anything in render or the class methods below
-  // Unless, of course, you're curious about how it all works
-  render() {
-
-    return (
-      <div className="App">
-        <h1>MultiTimer</h1>
-        <button onClick={this.handleAddTimer}>Add New Timer</button>
-
-        <div className="TimerGrid">
-          {this.renderTimers()}
-        </div>
-
-      </div>
-    );
-  }
 
   // returns array of components written in JSX, mapped from this.state.timerIDs
   renderTimers = () => this.state.timerIDs.map(id => {
@@ -54,6 +32,24 @@ class App extends Component {
     this.setState(prevState => ({
       timerIDs: prevState.timerIDs.filter(timer_id => timer_id !== id)
     }))
+  }
+
+
+  // No need to modify anything in render or the class methods below
+  // Unless, of course, you're curious about how it all works
+  render() {
+
+    return (
+      <div className="App">
+        <h1>MultiTimer</h1>
+        <button onClick={this.handleAddTimer}>Add New Timer</button>
+
+        <div className="TimerGrid">
+          {this.renderTimers()}
+        </div>
+
+      </div>
+    );
   }
 
 
